@@ -1,6 +1,9 @@
+import { Gallery } from './ImageGallery.styled';
+import PropTypes from 'prop-types';
+
 export default function ImageGallery({ data, onOpenModal }) {
   return (
-    <ul>
+    <Gallery>
       {data.map(image => (
         <li
           onClick={() => {
@@ -11,6 +14,11 @@ export default function ImageGallery({ data, onOpenModal }) {
           <img src={image.webformatURL} alt={image.tags} />
         </li>
       ))}
-    </ul>
+    </Gallery>
   );
 }
+
+ImageGallery.propTypes = {
+  data: PropTypes.string,
+  onOpenModal: PropTypes.func,
+};

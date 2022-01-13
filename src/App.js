@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { Component } from 'react';
 import Button from './components/Button/Button';
 import Searchbar from './components/Searchbar/Searchbar';
@@ -6,6 +6,7 @@ import Modal from './components/Modal/Modal';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import Loader from './components/Loader/Loader';
 import api from './Api/Api';
+import PropTypes from 'prop-types';
 
 export default class App extends Component {
   state = {
@@ -91,3 +92,15 @@ export default class App extends Component {
     );
   }
 }
+App.propTypes = {
+  image: PropTypes.string,
+  data: PropTypes.array,
+  status: PropTypes.string,
+  page: PropTypes.number,
+  error: PropTypes.bool,
+  showModal: PropTypes.bool,
+  currImg: PropTypes.object,
+  handleFormSubmit: PropTypes.func,
+  onLoadMore: PropTypes.func,
+  toggleModal: PropTypes.func,
+};
