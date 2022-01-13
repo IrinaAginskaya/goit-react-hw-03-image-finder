@@ -4,6 +4,7 @@ import Button from './components/Button/Button';
 import Searchbar from './components/Searchbar/Searchbar';
 import Modal from './components/Modal/Modal';
 import ImageGallery from './components/ImageGallery/ImageGallery';
+import Loader from './components/Loader/Loader';
 import api from './Api/Api';
 
 export default class App extends Component {
@@ -65,9 +66,13 @@ export default class App extends Component {
     return (
       <div>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        {status === 'idle' && <div>Enter your request</div>}
+        {status === 'idle' && <div>Waiting for your request</div>}
 
-        {status === 'pending' && <div>Loading...</div>}
+        {status === 'pending' && (
+          <div>
+            <Loader />
+          </div>
+        )}
 
         {status === 'resolved' && (
           <div>
